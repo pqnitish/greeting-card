@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+        .greetingCard {
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 10px;
+        }
+        .card{
+            width: 23%;
+            padding: 12px;
+            margin: auto;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: #a1e49e;
+
+        }
+        .card>h3{
+            color: #0fb8b5;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Your  code will go here
+    function GreetingCard({ greeting, name }) {
+        return (
+            <div className="greetingCard">
+                <div className="card">
+                    <h3>{greeting}</h3>
+                    <p>{name}</p>
+                </div>
+
+
+
+
+            </div>
+        )
+    }
+    function App() {
+        let greetingCards = [
+            { greeting: 'Happy Birthday', name: 'John Doe' },
+            { greeting: 'Merry Christmas', name: 'Jane Smith' },
+            { greeting: 'Happy New Year', name: 'Alice Johnson' },
+            { greeting: 'Congratulations', name: 'Bob Brown' },
+        ];
+
+        return (
+            <>
+                <h2 style={{color:"lightblue" }}>Greeting Card</h2>
+                {greetingCards.map((card, index) => (
+                    <GreetingCard key={index} greeting={card.greeting} name={card.name} />
+
+                ))}
+            </>
+        )
+    }
+    let root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />)
+</script>
+
+</html>
